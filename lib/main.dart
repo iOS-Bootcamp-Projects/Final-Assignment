@@ -1,17 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:final_assignment/HomePage.dart';
 import 'package:final_assignment/loginPage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MaterialApp(
     title: 'Navigation Basics',
-    home: FirstRoute(),
+    home: SignUp(),
   ));
 }
 
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,125 +22,124 @@ class FirstRoute extends StatelessWidget {
         title: const Text('Final Assignment'),
       ),
       body: SingleChildScrollView(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <
-            Widget>[
-          Container(
-            child: Text(
-              'Hello How are you?',
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Email',
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: Text(
+                  "Sing Up",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                ),
               ),
-            ),
-          )),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Password',
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Email',
+                  ),
+                ),
               ),
-            ),
-          )),
-          const Text.rich(
-            TextSpan(
-              text: 'Already have an account? ', // default text style
-              children: <TextSpan>[
-                TextSpan(
-                    text: 'Login',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-              ],
-            ),
-          ),
-          Container(
-              child: const Padding(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Password',
+                  ),
+                ),
+              ),
+              Center(
+                  child: RichText(
+                      text: TextSpan(
+                          text: " Already have an account?",
+                          style: TextStyle(color: Colors.black),
+                          children: [
+                    TextSpan(
+                      text: " Login",
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()));
+                        },
+                    )
+                  ]))),
+              const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: Text(
                     'Name',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ))),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'First Name',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  )),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'First Name',
+                  ),
+                ),
               ),
-            ),
-          )),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Last Name',
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Last Name',
+                  ),
+                ),
               ),
-            ),
-          )),
-          Container(
-              child: const Padding(
+              const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: Text(
                     'Address',
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ))),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Street',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  )),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Street',
+                  ),
+                ),
               ),
-            ),
-          )),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Apt#',
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Apt#',
+                  ),
+                ),
               ),
-            ),
-          )),
-          Container(
-              child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Zip Code',
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Zip Code',
+                  ),
+                ),
               ),
-            ),
-          )),
-          Container(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()));
-              },
-              // onPressed: null,
-              child: const Text('Login'),
-            ),
-          )
-        ]),
+              Center(
+                  child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                  // onPressed: null,
+                  child: const Text('Sign up'),
+                ),
+              ))
+            ]),
       ),
     );
   }
